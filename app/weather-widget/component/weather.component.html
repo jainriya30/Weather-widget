@@ -1,0 +1,28 @@
+<div class="card"(click)="toggleUnits()" [ngStyle]="setStyles()">
+    <div class="card-header">
+        <div class="col-xs-8">
+            <p> {{ locname.street | slice:0:15 }}, {{locname.state}} </p>
+        </div>
+        <div class="col-xs-4 text-xs-right">
+            <h1>{{ weather.temp-273.15 | number:'.0-0' }}&deg;C</h1>
+        </div>
+    </div>
+    
+    <div class="card-block">
+        <canvas id="summary"></canvas>
+        <p>{{weather.summary}}</p>
+    </div>
+
+    <div class="card-footer">
+        <div class="col-xs-5">
+            <p>Wind</p>
+            <p>{{weather.wind | speedUnit: currentSpeedUnit }} </p>
+
+        </div>
+
+        <div class="col-xs-5 offset-xs-2">
+            <p>Humidity</p>
+            <p>{{ weather.humidity }}%</p>
+        </div>
+    </div>
+</div>
